@@ -2,19 +2,60 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using CodeOfAdvent.Bingo;
 
 namespace CodeOfAdvent
 {
   class Program
-  {
-
-    
-
+  {  
     static void Main(string[] args)
     {
-      Execute_Day3_Task2_File();
+
+      Exectute_Day4_Task2_B();
+
+    }
+
+    private static void Execute_Day4_Task1_A()
+    {
+      var game = new BingoGame(InputReader.ReadFromLocalFile(InputReader.DAY4_TASK_A_FILENAME));
+      Execute_DAY4_TASK1_X(game, selectedGame => selectedGame.PlayTheGameAndGetWinnerBoard());
+    }
+
+    private static void Execute_Day4_Task1_B()
+    {
+      var game = new BingoGame(InputReader.ReadFromLocalFile(InputReader.DAY4_TASK_B_FILENAME));
+      Execute_DAY4_TASK1_X(game, selectedGame => selectedGame.PlayTheGameAndGetWinnerBoard());
+    }
+
+    private static void Exectute_Day4_Task2_A()
+    {
+      var game = new BingoGame(InputReader.ReadFromLocalFile(InputReader.DAY4_TASK_A_FILENAME));
+      Execute_DAY4_TASK1_X(game, selectedGame => selectedGame.PlayTheGameAndGetLastWinningBoard());
+    }
+
+    private static void Exectute_Day4_Task2_B()
+    {
+      var game = new BingoGame(InputReader.ReadFromLocalFile(InputReader.DAY4_TASK_B_FILENAME));
+      Execute_DAY4_TASK1_X(game, selectedGame => selectedGame.PlayTheGameAndGetLastWinningBoard());
+    }
 
 
+
+    private static void Execute_DAY4_TASK1_X(BingoGame game, Func<BingoGame,BingoBoard> gameStrat)
+    {
+      BingoBoard board = gameStrat(game);
+      PrintBoard(board);
+      Console.WriteLine($"WinningNumber: {game.WinningNumber}");
+      Console.WriteLine($"Final Result: {game.FinalResult}");
+
+      static void PrintBoard(BingoBoard board)
+      {
+        Console.WriteLine("Numbers:");
+        Console.WriteLine($"{board.ToString()}");
+        Console.WriteLine("Status:");
+        Console.WriteLine($"{board.GetBoardStatus()}");
+        Console.WriteLine($"Sum of not marked numbers: {board.SumOfUnMarkedFiels}");
+      }
     }
 
     private static void Execute_Day3_Task2_File()
@@ -104,72 +145,11 @@ namespace CodeOfAdvent
     private static void Execute_Day1_Task2()
     {
       var output = InputReader.ReadFromLocalFile("2_task.txt");
-      var outputInt = InputReader.CastToWholeNumbers(output);
+      var outputInt = SequenceUtility.CastToWholeNumbers(output);
 
-      Console.WriteLine(GetInrementCountVia3Mesure(outputInt));
+      Console.WriteLine(IncrementCounter.GetInrementCountVia3Mesure(outputInt));
     }
 
-    private static void PrintSequence<T>(IEnumerable<T> array)
-    {
-
-      foreach (T element in array)
-      {
-        Console.WriteLine(element);
-      }
-    }
-
-
-
-    
-
-    private static int GetInrementCountFromInput(int[] input)
-    {
-      int prevNumber = input[0];
-      int numberOfIncrements = 0;
-      for (int i = 1; i < input.Length; i++)
-      {
-        int currentNumber = input[i];
-        if (currentNumber > prevNumber)
-        {
-          numberOfIncrements++;
-        }
-
-        prevNumber = currentNumber;
-      }
-      return numberOfIncrements;
-    }
-
-    private static int GetInrementCountVia3Mesure(int[] input)
-    {
-      int maxLength = input.Length - 2;
-      int prev3Sum = Get3Sume(0);
-      int increment = 0;
-
-      for (int i = 1; i < maxLength; i++)
-      {
-        int current3Sum = Get3Sume(i);
-        if (current3Sum > prev3Sum)
-        {
-          increment++;
-        }
-
-        prev3Sum = current3Sum;
-      }
-
-      return increment;
-
-      int Get3Sume(int startIndex)
-      {
-        int length = startIndex + 3;
-        int sum = 0;
-        for (int i = startIndex; i < length; i++)
-        {
-          sum += input[i];
-        }
-
-        return sum;
-      }
-    }
 
   }
 }

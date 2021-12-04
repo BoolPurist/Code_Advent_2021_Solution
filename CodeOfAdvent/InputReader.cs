@@ -9,6 +9,19 @@ namespace CodeOfAdvent
 {
   public static class InputReader
   {
+    public static string[] ReadFromLocalFile(in string path)
+    {
+      string basePathFolder = Path.Combine(Directory.GetCurrentDirectory(), NAME_OF_INPUT_FILE, path);
+      return ConvertToArray(File.ReadAllText(basePathFolder));
+    }
+    private static string[] ConvertToArray(in string content)
+    {
+      return content.Split(Environment.NewLine);
+    }
+
+    #region In memory data
+    public const string DAY4_TASK_B_FILENAME = "4_day_input_B.txt";
+    public const string DAY4_TASK_A_FILENAME = "4_day_input_instruction.txt";
     public const string DAY2_TASK1_FILENAME = "2_day_task_1.txt";
     public const string DAY2_TASK2_FILENAME = "2_day_task_2.txt";
     public const string DAY3_INPUT = "3_day_input.txt";
@@ -45,31 +58,12 @@ namespace CodeOfAdvent
       };
 
 
-
     private const string NAME_OF_INPUT_FILE = "inputFiles";
 
-    public static string[] ReadFromLocalFile(in string path)
-    {
-      string basePathFolder = Path.Combine(Directory.GetCurrentDirectory(), NAME_OF_INPUT_FILE, path);
-      return ConvertToArray(File.ReadAllText(basePathFolder));
-    }
+    #endregion
 
-    
 
-    private static string[] ConvertToArray(in string content)
-    {
-      return content.Split(Environment.NewLine);
-    }
 
-    public static int[] CastToWholeNumbers(string[] array)
-    {
-      var result = new int[array.Length];
-      for (int i = 0; i < result.Length; i++)
-      {
-        result[i] = Convert.ToInt32(array[i]);
-      }
-      return result;
-    }
 
 
   }
