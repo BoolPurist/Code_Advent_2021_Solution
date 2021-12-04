@@ -11,7 +11,10 @@ namespace CodeOfAdvent
   {
     public static string[] ReadFromLocalFile(in string path)
     {
-      string basePathFolder = Path.Combine(Directory.GetCurrentDirectory(), NAME_OF_INPUT_FILE, path);
+      string workingDirectory = Directory.GetCurrentDirectory();
+      string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+      Console.WriteLine(projectDirectory);
+      string basePathFolder = Path.Combine(projectDirectory, NAME_OF_INPUT_FOLDER, path);
       return ConvertToArray(File.ReadAllText(basePathFolder));
     }
     private static string[] ConvertToArray(in string content)
@@ -58,7 +61,7 @@ namespace CodeOfAdvent
       };
 
 
-    private const string NAME_OF_INPUT_FILE = "inputFiles";
+    private const string NAME_OF_INPUT_FOLDER = "inputFiles";
 
     #endregion
 
