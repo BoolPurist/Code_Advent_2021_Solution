@@ -13,7 +13,6 @@ namespace CodeOfAdvent
     {
       string workingDirectory = Directory.GetCurrentDirectory();
       string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-      Console.WriteLine(projectDirectory);
       string basePathFolder = Path.Combine(projectDirectory, NAME_OF_INPUT_FOLDER, path);
       return ConvertToArray(File.ReadAllText(basePathFolder));
     }
