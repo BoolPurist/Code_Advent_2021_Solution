@@ -27,6 +27,8 @@ namespace CodeOfAdvent
     public const string DAY2_TASK1_FILENAME = "2_day_task_1.txt";
     public const string DAY2_TASK2_FILENAME = "2_day_task_2.txt";
     public const string DAY3_INPUT = "3_day_input.txt";
+    public const string DAY5_INPUT_0 = "5_day_input_0.txt";
+    public const string DAY5_INPUT_A = "5_day_input_A.txt";
 
     public readonly static string[] DAY2_TASK12_START_INPUT = new string[] { "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" };
     public readonly static int[] DAY1_TASK12_START_INPUT = new int[] { 199, 200, 208, 210, 200, 207, 240, 269, 260, 263 };

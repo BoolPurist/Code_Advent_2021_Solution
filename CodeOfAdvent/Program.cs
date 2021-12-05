@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using CodeOfAdvent.Bingo;
+using CodeOfAdvent.HydrorthermalVenture;
 
 namespace CodeOfAdvent
 {
@@ -10,10 +11,34 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
+      Execute_Day5_Task12_0();
 
-      Exectute_Day4_Task2_B();
+
 
     }
+    private static void Execute_Day5_Task12()
+    {
+      var input = InputReader.ReadFromLocalFile(InputReader.DAY5_INPUT_A);
+      var vents = InputVentParser.Parse(input);
+
+      var diagram = new VentLineDiagram(1000, 1000);
+      diagram.InsertVentLines(vents);
+      Console.WriteLine(diagram.GetNumberOfPointsWithAtLeastOverlapOf(2));
+    }
+
+    private static void Execute_Day5_Task12_0()
+    {
+      var input = InputReader.ReadFromLocalFile(InputReader.DAY5_INPUT_0);
+      var vents = InputVentParser.Parse(input);
+
+      var diagram = new VentLineDiagram(10, 10);
+      diagram.InsertVentLines(vents);
+      Console.WriteLine(diagram);
+      Console.WriteLine(diagram.GetNumberOfPointsWithAtLeastOverlapOf(2));
+
+    }
+
+    
 
     private static void Execute_Day4_Task1_A()
     {
