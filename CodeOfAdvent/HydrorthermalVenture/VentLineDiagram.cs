@@ -22,6 +22,24 @@ namespace CodeOfAdvent.HydrorthermalVenture
       
     }
 
+    public VentLineDiagram(IEnumerable<LineOfVent> vents)
+    {
+      int maxValue = 0;
+
+      foreach (LineOfVent vent in vents)
+      {
+        maxValue = Math.Max(maxValue, vent.MaxValue);        
+      }
+
+      maxValue++;
+
+      _diagramValues = new int[maxValue, maxValue];
+
+      InsertVentLines(vents);
+    }
+
+
+
     public int MaxCount
     {
       get
@@ -41,7 +59,6 @@ namespace CodeOfAdvent.HydrorthermalVenture
       return countOfOverlaps;
     }
 
-    // isOnlyVerticalOfHorizontal
     public void InsertVentLines(IEnumerable<LineOfVent> sequenceToInsert)
     {
       foreach (LineOfVent line in sequenceToInsert)

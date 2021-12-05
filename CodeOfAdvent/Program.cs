@@ -11,7 +11,7 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-      Execute_Day5_Task12_0();
+      Execute_Day5_Task12();
 
 
 
@@ -21,8 +21,8 @@ namespace CodeOfAdvent
       var input = InputReader.ReadFromLocalFile(InputReader.DAY5_INPUT_A);
       var vents = InputVentParser.Parse(input);
 
-      var diagram = new VentLineDiagram(1000, 1000);
-      diagram.InsertVentLines(vents);
+      var diagram = new VentLineDiagram(vents);
+      
       Console.WriteLine(diagram.GetNumberOfPointsWithAtLeastOverlapOf(2));
     }
 
@@ -31,8 +31,7 @@ namespace CodeOfAdvent
       var input = InputReader.ReadFromLocalFile(InputReader.DAY5_INPUT_0);
       var vents = InputVentParser.Parse(input);
 
-      var diagram = new VentLineDiagram(10, 10);
-      diagram.InsertVentLines(vents);
+      var diagram = new VentLineDiagram(vents);
       Console.WriteLine(diagram);
       Console.WriteLine(diagram.GetNumberOfPointsWithAtLeastOverlapOf(2));
 

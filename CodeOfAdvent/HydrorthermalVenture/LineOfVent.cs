@@ -14,19 +14,22 @@ namespace CodeOfAdvent.HydrorthermalVenture
     public Vector2Int FirstPoint { get; private set; }
     public Vector2Int SecondPoint { get; private set; }
 
-    public LineOfVent(Vector2Int firstPoint, Vector2Int secondPoint)
-      => (FirstPoint, SecondPoint) = (firstPoint, secondPoint);
+    public LineOfVent(Vector2Int firstPoint, Vector2Int secondPoint) => 
+      (FirstPoint, SecondPoint) = (firstPoint, secondPoint);
 
-    public bool IsNotDiagonal 
-      => IsVertical || IsHorizontal;
+    public bool IsNotDiagonal => 
+      IsVertical || IsHorizontal;
 
-    public bool IsVertical
-      => FirstPoint.X == SecondPoint.X;
+    public bool IsVertical => 
+      FirstPoint.X == SecondPoint.X;
 
-    public bool IsHorizontal
-      => FirstPoint.Y == SecondPoint.Y;
+    public bool IsHorizontal => 
+      FirstPoint.Y == SecondPoint.Y;
 
-    public override string ToString()
-      => $"{FirstPoint.X},{FirstPoint.Y} -> {SecondPoint.X},{SecondPoint.Y}";
+    public int MaxValue => 
+      (new int[] { FirstPoint.X, FirstPoint.Y, SecondPoint.X, SecondPoint.Y }).Max();
+
+    public override string ToString() => 
+      $"{FirstPoint.X},{FirstPoint.Y} -> {SecondPoint.X},{SecondPoint.Y}";
   }
 }
