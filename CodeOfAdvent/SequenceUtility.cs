@@ -26,5 +26,17 @@ namespace CodeOfAdvent
       }
       return result;
     }
+
+    public static string CreateStringFromDictionary<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
+    {
+      var outputBuilder = new StringBuilder();
+
+      foreach (KeyValuePair<TKey, TValue> keyPair in dictionary)
+      {
+        outputBuilder.AppendLine($"({keyPair.Key}) => ({keyPair.Value})");
+      }
+
+      return outputBuilder.ToString();
+    }
   }
 }

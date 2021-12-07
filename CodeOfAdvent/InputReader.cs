@@ -16,12 +16,17 @@ namespace CodeOfAdvent
       string basePathFolder = Path.Combine(projectDirectory, NAME_OF_INPUT_FOLDER, path);
       return ConvertToArray(File.ReadAllText(basePathFolder));
     }
+
+
+
     private static string[] ConvertToArray(in string content)
     {
-      return content.Split(Environment.NewLine);
+      return content.Trim().Split(Environment.NewLine);
     }
 
     #region In memory data
+    public const string DAY5 = "6_day_input_Task1.txt";
+
     public const string DAY4_TASK_B_FILENAME = "4_day_input_B.txt";
     public const string DAY4_TASK_A_FILENAME = "4_day_input_instruction.txt";
     public const string DAY2_TASK1_FILENAME = "2_day_task_1.txt";

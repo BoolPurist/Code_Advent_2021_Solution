@@ -11,7 +11,7 @@ namespace CodeOfAdvent.HydrorthermalVenture
   {
     private const char EMPTY_CHAR = '.';
 
-    private int[,] _diagramValues;
+    private readonly int[,] _diagramValues;
 
     public VentLineDiagram(int width, int height)
     {

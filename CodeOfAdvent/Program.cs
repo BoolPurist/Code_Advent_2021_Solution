@@ -4,6 +4,7 @@ using System.Linq;
 
 using CodeOfAdvent.Bingo;
 using CodeOfAdvent.HydrorthermalVenture;
+using CodeOfAdvent.lanternfish;
 
 namespace CodeOfAdvent
 {
@@ -11,11 +12,50 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-      Execute_Day5_Task12();
-
-
-
+      Execute_Day6_Execute_Task1();
     }
+
+
+    private static void Execute_Day6_Execute_Task1()
+    {
+      var textInput = InputReader.ReadFromLocalFile(InputReader.DAY5);
+      string[] tokens = textInput[0].Split(",", StringSplitOptions.RemoveEmptyEntries);
+      int[] input = SequenceUtility.CastToWholeNumbers(tokens);
+
+      var output = FishInterpolation.GetInterpolatedPopulationCount(
+        80,
+        input,
+        7,
+        9
+        );
+
+      Console.WriteLine($"Result with 80 Days: {output}");
+
+      output = FishInterpolation.GetInterpolatedPopulationCount(
+        256,
+        input,
+        7,
+        9,
+        10
+        );
+
+      
+      Console.WriteLine($"Result with 256 Days: {output}");
+    }
+
+    private static void Execute_Day6_Execute_0()
+    {
+      var input = new int[] { 3, 4, 3, 1, 2 };
+      var resultAfter18Days = FishInterpolation.GetInterpolatedPopulationCount(18, input, 7, 9);
+      Console.WriteLine($"Result after 18: {resultAfter18Days}");
+      var resultAfter80Days = FishInterpolation.GetInterpolatedPopulationCount(80, input, 7, 9);
+      Console.WriteLine($"Result after 80: {resultAfter80Days}");
+      var resultAfter256Days = FishInterpolation.GetInterpolatedPopulationCount(256, input, 7, 9);
+      Console.WriteLine($"Result after 256: {resultAfter256Days}");
+    }
+
+    
+
     private static void Execute_Day5_Task12()
     {
       var input = InputReader.ReadFromLocalFile(InputReader.DAY5_INPUT_A);
