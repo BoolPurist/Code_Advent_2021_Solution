@@ -10,7 +10,6 @@ namespace CodeOfAdvent.lanternfish
 {
   public static class FishInterpolation
   {
-    private const int MaxDegreeOfParallelismLimit = 10;
 
     public static Dictionary<int, int> CreateFishStartCount(IEnumerable<int> fishes)
     {

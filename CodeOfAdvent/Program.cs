@@ -5,6 +5,7 @@ using System.Linq;
 using CodeOfAdvent.Bingo;
 using CodeOfAdvent.HydrorthermalVenture;
 using CodeOfAdvent.lanternfish;
+using CodeOfAdvent.WhaleAndCrabs;
 
 namespace CodeOfAdvent
 {
@@ -12,14 +13,49 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-      Execute_Day6_Execute_Task1();
+      
+    }
+
+    private static void Execute_Day7_Task2()
+    {
+      var textInput = InputReader.GetOneLinerInput(InputReader.DAY7, ",");
+      var input = SequenceUtility.CastToWholeNumbers(textInput);
+      var crabFormation = new CrabFormation(input, false);
+      Console.WriteLine($"SweetSpot: {crabFormation.SweetSpot}");
+      Console.WriteLine($"UsedFuel: {crabFormation.MinimalFuelUsage}");
+    }
+
+    private static void Execute_Day7_Task1()
+    {
+      var textInput = InputReader.GetOneLinerInput(InputReader.DAY7, ",");
+      var input = SequenceUtility.CastToWholeNumbers(textInput);
+      var crabFormation = new CrabFormation(input);
+      Console.WriteLine($"SweetSpot: {crabFormation.SweetSpot}");
+      Console.WriteLine($"UsedFuel: {crabFormation.MinimalFuelUsage}");
+    }
+
+    private static void Execute_Day7_Toy2()
+    {
+      var input = InputReader.DAY_7_TOY_ARRAY;
+      var crabFormation = new CrabFormation(input, false);
+
+      Console.WriteLine($"SweetSpot: {crabFormation.SweetSpot}");
+      Console.WriteLine($"UsedFuel: {crabFormation.MinimalFuelUsage}");
+    }
+
+    private static void Execute_Day7_Toy()
+    {      
+      var input = InputReader.DAY_7_TOY_ARRAY; 
+      var crabFormation = new CrabFormation(input);
+
+      Console.WriteLine($"SweetSpot: {crabFormation.SweetSpot}");
+      Console.WriteLine($"UsedFuel: {crabFormation.MinimalFuelUsage}");
     }
 
 
     private static void Execute_Day6_Execute_Task1()
     {
-      var textInput = InputReader.ReadFromLocalFile(InputReader.DAY5);
-      string[] tokens = textInput[0].Split(",", StringSplitOptions.RemoveEmptyEntries);
+      var tokens = InputReader.GetOneLinerInput(InputReader.DAY5, ",");
       int[] input = SequenceUtility.CastToWholeNumbers(tokens);
 
       var output = FishInterpolation.GetInterpolatedPopulationCount(

@@ -10,19 +10,27 @@ namespace CodeOfAdvent
   public static class InputReader
   {
     public static string[] ReadFromLocalFile(in string path)
+      => ConvertToArray(ReadFromFile(path));
+
+    private static string ReadFromFile(in string path)
     {
       string workingDirectory = Directory.GetCurrentDirectory();
       string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
       string basePathFolder = Path.Combine(projectDirectory, NAME_OF_INPUT_FOLDER, path);
-      return ConvertToArray(File.ReadAllText(basePathFolder));
+      return File.ReadAllText(basePathFolder);
     }
 
-
+    public static string[] GetOneLinerInput(in string path,in string seperator)
+      => ReadFromFile(path).Trim().Split(seperator);
 
     private static string[] ConvertToArray(in string content)
     {
       return content.Trim().Split(Environment.NewLine);
     }
+
+    public static readonly int[] DAY_7_TOY_ARRAY = new int[] { 16, 1, 2, 0, 4, 2, 7, 1, 2, 14 };
+
+    public const string DAY7 = "7_day_input.txt";
 
     #region In memory data
     public const string DAY5 = "6_day_input_Task1.txt";
