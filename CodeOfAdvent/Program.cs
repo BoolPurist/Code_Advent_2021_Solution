@@ -6,6 +6,7 @@ using CodeOfAdvent.Bingo;
 using CodeOfAdvent.HydrorthermalVenture;
 using CodeOfAdvent.lanternfish;
 using CodeOfAdvent.WhaleAndCrabs;
+using CodeOfAdvent.DisplayDigits;
 
 namespace CodeOfAdvent
 {
@@ -14,6 +15,40 @@ namespace CodeOfAdvent
     static void Main(string[] args)
     {
       
+    }
+
+    private static void Execute_Day8_Task2()
+    {
+      string[] input = InputReader.ReadFromLocalFile(InputReader.DAY8);
+
+      int result = DigetSequence.GetSumOfDigits(input);
+
+      Console.WriteLine($"Result: {result}");
+    }
+
+    private static void Execute_Day8_Task2_Toy()
+    {
+      string[] input = InputReader.ReadFromLocalFile(InputReader.DAY8_TOY);
+
+      int result = DigetSequence.GetSumOfDigits(input);
+
+      Console.WriteLine($"Result: {result}");
+    }
+
+    
+
+    private static void Execute_Day8_Task1()
+    {
+      var input = InputReader.ReadFromLocalFile(InputReader.DAY8);
+      var result = DigetSequence.GetNumberOfEasyDigits(input);
+      Console.WriteLine($"Result: {result}");
+    }
+
+    private static void Execute_Day8_Toy()
+    {
+      var input = InputReader.ReadFromLocalFile(InputReader.DAY8_TOY);
+      var result = DigetSequence.GetNumberOfEasyDigits(input);
+      Console.WriteLine($"Result: {result}");
     }
 
     private static void Execute_Day7_Task2()

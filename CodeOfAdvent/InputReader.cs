@@ -62,7 +62,10 @@ namespace CodeOfAdvent
       0b_01010 
     };
 
-    
+    public const string DAY8_TOY = "8_day_toy.txt";
+    public const string DAY8 = "8_day.txt";
+
+
 
     public readonly static int[] DAY3_TASK1_A_TEST = new int[]
       {
