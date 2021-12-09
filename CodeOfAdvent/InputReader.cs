@@ -28,6 +28,9 @@ namespace CodeOfAdvent
       return content.Trim().Split(Environment.NewLine);
     }
 
+    public const string DAY9_TOY = "9_day_toy.txt";
+    public const string DAY9 = "9_day.txt";
+
     public static readonly int[] DAY_7_TOY_ARRAY = new int[] { 16, 1, 2, 0, 4, 2, 7, 1, 2, 14 };
 
     public const string DAY7 = "7_day_input.txt";

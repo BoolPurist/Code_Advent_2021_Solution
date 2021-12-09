@@ -7,6 +7,7 @@ using CodeOfAdvent.HydrorthermalVenture;
 using CodeOfAdvent.lanternfish;
 using CodeOfAdvent.WhaleAndCrabs;
 using CodeOfAdvent.DisplayDigits;
+using CodeOfAdvent.SmokeTrails;
 
 namespace CodeOfAdvent
 {
@@ -14,7 +15,33 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-      
+      Execute_Day9_Task2();
+    }
+
+    private static void Execute_Day9_Task2()
+      => Execute_Day9_Task2_Routine(InputReader.DAY9);
+
+    private static void Execute_Day9_Task2_Toy()
+      => Execute_Day9_Task2_Routine(InputReader.DAY9_TOY);
+
+
+    private static void Execute_Day9()
+      => Execute_Day9_Task1_Routine(InputReader.DAY9);
+
+    private static void Execute_Day9_Toy()
+      => Execute_Day9_Task1_Routine(InputReader.DAY9_TOY);
+
+    private static void Execute_Day9_Task2_Routine(in string path)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var map = new HeightMap(input);
+      Console.WriteLine($"Result: {map.GetThreeLagestBasins()}");
+    }
+    private static void Execute_Day9_Task1_Routine(in string path)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var map = new HeightMap(input);
+      Console.WriteLine($"Result: {map.GetTotalHeightOfLowestPoints()}");
     }
 
     private static void Execute_Day8_Task2()
