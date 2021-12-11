@@ -30,7 +30,7 @@ namespace CodeOfAdvent.Bingo
 
           if (parsingBoard)
           {
-            int[] oneLineOfBoard = SequenceUtility.CastToWholeNumbers(currentLine.Split(' ', StringSplitOptions.RemoveEmptyEntries));
+            int[] oneLineOfBoard = SequenceUtility.CastToOneWholeNumberPerLine(currentLine.Split(' ', StringSplitOptions.RemoveEmptyEntries));
 
             for (
               int indexOfBoard = boardLineIndex * 5, indexOfLine = 0, length = indexOfBoard + 5;
@@ -137,7 +137,7 @@ namespace CodeOfAdvent.Bingo
     private void ParseRandomNumbres(string lineOfNumbers)
     {
       var splitted = lineOfNumbers.Split(',');
-      _randomNumbers = SequenceUtility.CastToWholeNumbers(splitted);
+      _randomNumbers = SequenceUtility.CastToOneWholeNumberPerLine(splitted);
     }
 
     

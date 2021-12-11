@@ -17,7 +17,7 @@ namespace CodeOfAdvent
       }
     }
 
-    public static int[] CastToWholeNumbers(string[] array)
+    public static int[] CastToOneWholeNumberPerLine(string[] array)
     {
       var result = new int[array.Length];
       for (int i = 0; i < result.Length; i++)
@@ -25,7 +25,7 @@ namespace CodeOfAdvent
         result[i] = Convert.ToInt32(array[i]);
       }
       return result;
-    }
+    } 
 
     public static string CreateStringFromDictionary<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
     {

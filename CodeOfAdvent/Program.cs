@@ -8,6 +8,8 @@ using CodeOfAdvent.lanternfish;
 using CodeOfAdvent.WhaleAndCrabs;
 using CodeOfAdvent.DisplayDigits;
 using CodeOfAdvent.SmokeTrails;
+using CodeOfAdvent.BrokenSyntax;
+using CodeOfAdvent.dumboOctopuses;
 
 namespace CodeOfAdvent
 {
@@ -15,7 +17,63 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-      Execute_Day9_Task2();
+      Execute_Day11_Task2();
+    }
+
+
+    private static void Execute_Day11_Task2_Toy()
+      => Execute_Day11_Taks2_Routine(InputReader.DAY11_TOY_2);
+
+    private static void Execute_Day11_Task2()
+      => Execute_Day11_Taks2_Routine(InputReader.DAY11);
+    private static void Execute_Day11_Taks2_Routine(string path)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var grid = new Octopuses(input);
+      var result = grid.InvokeStepsUntilSync();
+      Console.WriteLine(grid);
+      Console.WriteLine($"Number of steps: {result}");
+    }
+
+    private static void Execute_Day11_Task1()
+      => Execute_Day11_Routine(InputReader.DAY11, 100);
+    private static void Execute_Day11_Task1_Toy_2()
+      => Execute_Day11_Routine(InputReader.DAY11_TOY_2, 100);
+    private static void Execute_Day11_Task1_Toy()
+      => Execute_Day11_Routine(InputReader.DAY11_TOY, 2);
+
+    private static void Execute_Day11_Routine(string path, int numberOfSteps)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var grid = new Octopuses(input);
+      grid.InvokeStepsBy(numberOfSteps);
+      Console.WriteLine(grid);
+      Console.WriteLine($"Number of flashes: {grid.NumberOfFlashes}");
+    }
+    private static void Execute_Day10_Task2()
+      => Execute_Day10_Task2_Routine(InputReader.DAY10);
+
+    private static void Execute_Day10_Task2_Toy()
+      => Execute_Day10_Task2_Routine(InputReader.DAY10_TOY);
+
+    private static void Execute_Day10_Task2_Routine(string path)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      ulong result = SyntaxParser.GetMiddleScore(input);
+      Console.WriteLine($"Middle score: {result}");      
+    }
+
+    private static void Execute_Day10_Task1()
+      => Execute_Day10_Task1_Routine(InputReader.DAY10);
+
+    private static void Execute_Day10_Tas1_Toy()
+      => Execute_Day10_Task1_Routine(InputReader.DAY10_TOY);
+
+    private static void Execute_Day10_Task1_Routine(in string path)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      Console.WriteLine($"Result: {SyntaxParser.ParseForAllFirstWrongClosing(input)}");
+      // Console.WriteLine($"Error score: {SymbolStorage.ParseBlockForWrongClosingChar(input)}");
     }
 
     private static void Execute_Day9_Task2()
@@ -81,7 +139,7 @@ namespace CodeOfAdvent
     private static void Execute_Day7_Task2()
     {
       var textInput = InputReader.GetOneLinerInput(InputReader.DAY7, ",");
-      var input = SequenceUtility.CastToWholeNumbers(textInput);
+      var input = SequenceUtility.CastToOneWholeNumberPerLine(textInput);
       var crabFormation = new CrabFormation(input, false);
       Console.WriteLine($"SweetSpot: {crabFormation.SweetSpot}");
       Console.WriteLine($"UsedFuel: {crabFormation.MinimalFuelUsage}");
@@ -90,7 +148,7 @@ namespace CodeOfAdvent
     private static void Execute_Day7_Task1()
     {
       var textInput = InputReader.GetOneLinerInput(InputReader.DAY7, ",");
-      var input = SequenceUtility.CastToWholeNumbers(textInput);
+      var input = SequenceUtility.CastToOneWholeNumberPerLine(textInput);
       var crabFormation = new CrabFormation(input);
       Console.WriteLine($"SweetSpot: {crabFormation.SweetSpot}");
       Console.WriteLine($"UsedFuel: {crabFormation.MinimalFuelUsage}");
@@ -118,7 +176,7 @@ namespace CodeOfAdvent
     private static void Execute_Day6_Execute_Task1()
     {
       var tokens = InputReader.GetOneLinerInput(InputReader.DAY5, ",");
-      int[] input = SequenceUtility.CastToWholeNumbers(tokens);
+      int[] input = SequenceUtility.CastToOneWholeNumberPerLine(tokens);
 
       var output = FishInterpolation.GetInterpolatedPopulationCount(
         80,
@@ -307,7 +365,7 @@ namespace CodeOfAdvent
     private static void Execute_Day1_Task2()
     {
       var output = InputReader.ReadFromLocalFile("2_task.txt");
-      var outputInt = SequenceUtility.CastToWholeNumbers(output);
+      var outputInt = SequenceUtility.CastToOneWholeNumberPerLine(output);
 
       Console.WriteLine(IncrementCounter.GetInrementCountVia3Mesure(outputInt));
     }
