@@ -10,6 +10,7 @@ using CodeOfAdvent.DisplayDigits;
 using CodeOfAdvent.SmokeTrails;
 using CodeOfAdvent.BrokenSyntax;
 using CodeOfAdvent.dumboOctopuses;
+using CodeOfAdvent.PassagePathing;
 
 namespace CodeOfAdvent
 {
@@ -17,9 +18,36 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-      Execute_Day11_Task2();
+      Execute_Day12_Task2();
+      
     }
 
+    private static void Execute_Day12_Toy_Task2_1()
+      => Execute_Day12_Routine(InputReader.DAY12_TOY_1, true);
+
+    private static void Execute_Day12_Toy_Task2_2()
+      => Execute_Day12_Routine(InputReader.DAY12_TOY_2, true);
+
+    private static void Execute_Day12_Task2()
+      => Execute_Day12_Routine(InputReader.DAY12, true);
+
+    private static void Execute_Day12_Toy_1()
+      => Execute_Day12_Routine(InputReader.DAY12_TOY_1, false);
+
+    private static void Execute_Day12_Toy_2()
+      => Execute_Day12_Routine(InputReader.DAY12_TOY_2, false);
+
+    private static void Execute_Day12_Task1()
+      => Execute_Day12_Routine(InputReader.DAY12, false);
+
+    private static void Execute_Day12_Routine(string path, bool withJoker)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var system = new CaveSystem(input);
+      Console.WriteLine(system);
+      int result = system.GetNumberOfPathsToEnd(withJoker);
+      Console.WriteLine($"Number of paths to end {result}");
+    }
 
     private static void Execute_Day11_Task2_Toy()
       => Execute_Day11_Taks2_Routine(InputReader.DAY11_TOY_2);

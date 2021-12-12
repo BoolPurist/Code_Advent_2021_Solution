@@ -10,7 +10,7 @@ namespace CodeOfAdvent.dumboOctopuses
   {
     public int NumberOfFlashes => _numberOfFlashes;
     private int _numberOfFlashes = 0;
-    private int[,] _octopusesGrid;
+    private readonly int[,] _octopusesGrid;
     public Octopuses(string[] input)
     {
       string firstLine = input[0];
