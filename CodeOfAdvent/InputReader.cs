@@ -28,6 +28,9 @@ namespace CodeOfAdvent
       return content.Trim().Split(Environment.NewLine);
     }
 
+    public const string DAY13_Toy = "13_day_toy.txt";
+    public const string DAY13 = "13_day_Task.txt";
+
     public const string DAY12 = "12_day.txt";
     public const string DAY12_TOY_1 = "12_day_toy_1.txt";
     public const string DAY12_TOY_2 = "12_day_toy_2.txt";

@@ -11,6 +11,7 @@ using CodeOfAdvent.SmokeTrails;
 using CodeOfAdvent.BrokenSyntax;
 using CodeOfAdvent.dumboOctopuses;
 using CodeOfAdvent.PassagePathing;
+using CodeOfAdvent.Folding;
 
 namespace CodeOfAdvent
 {
@@ -18,8 +19,37 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-      Execute_Day12_Task2();
-      
+          
+    }
+
+    private static void Execute_Day13_Task2()
+      => Execute_Day13_Task2_Routine(InputReader.DAY13);
+
+    private static void Execute_Day13_Toy_Task2()
+      => Execute_Day13_Task2_Routine(InputReader.DAY13_Toy);
+
+    private static void Execute_Day13_Task1()
+      => Execute_Day13_Task1_Routine(InputReader.DAY13);
+
+    private static void Execute_Day13_Toy_Task1()
+      => Execute_Day13_Task1_Routine(InputReader.DAY13_Toy);
+
+    private static void Execute_Day13_Task1_Routine(string path)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var paper = new TransparentPaper(input);
+      int result = paper.GetCountOfDotsOnce();
+      Console.WriteLine(paper);
+      Console.WriteLine($"Count of dots: {result}");
+    }
+
+    private static void Execute_Day13_Task2_Routine(string path)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var paper = new TransparentPaper(input);
+      int result = paper.GetCountOfDotsAtEnd();
+      Console.WriteLine(paper);
+      Console.WriteLine($"Count of dots: {result}");
     }
 
     private static void Execute_Day12_Toy_Task2_1()
