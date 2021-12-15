@@ -12,6 +12,7 @@ using CodeOfAdvent.BrokenSyntax;
 using CodeOfAdvent.dumboOctopuses;
 using CodeOfAdvent.PassagePathing;
 using CodeOfAdvent.Folding;
+using CodeOfAdvent.Polymerization;
 
 namespace CodeOfAdvent
 {
@@ -19,7 +20,28 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-          
+
+      Execute_Day_14_Task2();
+    }
+
+
+    private static void Execute_Day_14_Task2()
+      => Execute_Day_14_Routine(InputReader.DAY14, 40);
+
+    private static void Execute_Day_14_Task2_Toy()
+      => Execute_Day_14_Routine(InputReader.DAY14_Toy, 40);
+
+    private static void Execute_Day_14_Task1()
+      => Execute_Day_14_Routine(InputReader.DAY14, 10);
+
+    private static void Execute_Day_14_Task1_Toy()
+      => Execute_Day_14_Routine(InputReader.DAY14_Toy, 10);
+
+    private static void Execute_Day_14_Routine(string path, int steps)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var builder = new TemplateBuilder(input);
+      Console.WriteLine($"Result: {builder.GetDifferenceBetweenMinAndMax(steps)}");
     }
 
     private static void Execute_Day13_Task2()

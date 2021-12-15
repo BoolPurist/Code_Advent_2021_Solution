@@ -71,7 +71,6 @@ namespace CodeOfAdvent.Folding
       int newHeight = Height;
       int foldspace = currentInstruction.FoldPlace;
       int lastIndex;
-      int middlePoint = foldspace + 1;
       
       // Fold horizontal
       if (currentInstruction.IsXnotY)
@@ -122,7 +121,10 @@ namespace CodeOfAdvent.Folding
       /// Offset if page is folded over right/bottom half and not in the middle
       /// </summary>
       int GetDistanceBetweenMiddleAndEnd()
-       => Math.Max(0, foldspace - (lastIndex - foldspace));
+      {
+        int distanceBetweenFoldPlaceAndEnd = lastIndex - foldspace;
+        return foldspace - distanceBetweenFoldPlaceAndEnd;
+      }
     }
 
     public int GetCountOfDotsAtEnd()
