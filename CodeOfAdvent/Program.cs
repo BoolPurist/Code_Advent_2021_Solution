@@ -13,6 +13,7 @@ using CodeOfAdvent.dumboOctopuses;
 using CodeOfAdvent.PassagePathing;
 using CodeOfAdvent.Folding;
 using CodeOfAdvent.Polymerization;
+using CodeOfAdvent.ChitonMaze;
 
 namespace CodeOfAdvent
 {
@@ -20,10 +21,27 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
-
-      Execute_Day_14_Task2();
+      
     }
 
+    private static void Execute_Day_15_Task2()
+      => Execute_Day_15_Task1_Routine(InputReader.DAY15, true);
+    private static void Execute_Day_15_Task2_Toy()
+      => Execute_Day_15_Task1_Routine(InputReader.DAY15_Toy, true);
+
+    private static void Execute_Day_15_Task1()
+      => Execute_Day_15_Task1_Routine(InputReader.DAY15);
+    private static void Execute_Day_15_Task1_Toy()
+      => Execute_Day_15_Task1_Routine(InputReader.DAY15_Toy);
+
+    private static void Execute_Day_15_Task1_Routine(string path, bool larger = false)
+    {
+      string[] input = InputReader.ReadFromLocalFile(path);
+      var maze = new ChitonMazeInstance(input, larger);
+      Console.WriteLine(maze);
+      var result = maze.GetLowestRisk();
+      Console.WriteLine($"Result: {result}");
+    }
 
     private static void Execute_Day_14_Task2()
       => Execute_Day_14_Routine(InputReader.DAY14, 40);
