@@ -17,7 +17,7 @@ namespace CodeOfAdvent
       string workingDirectory = Directory.GetCurrentDirectory();
       string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
       string basePathFolder = Path.Combine(projectDirectory, NAME_OF_INPUT_FOLDER, path);
-      return File.ReadAllText(basePathFolder);
+      return File.ReadAllText(basePathFolder).Trim();
     }
 
     public static string[] GetOneLinerInput(in string path,in string seperator)
@@ -27,6 +27,8 @@ namespace CodeOfAdvent
     {
       return content.Trim().Split(Environment.NewLine);
     }
+
+    public const string DAY16 = "16_day.txt";
 
     public const string DAY15_Toy = "15_day_toy.txt";
     public const string DAY15 = "15_day.txt";

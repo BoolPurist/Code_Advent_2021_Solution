@@ -14,6 +14,7 @@ using CodeOfAdvent.PassagePathing;
 using CodeOfAdvent.Folding;
 using CodeOfAdvent.Polymerization;
 using CodeOfAdvent.ChitonMaze;
+using CodeOfAdvent.PacketDecoder;
 
 namespace CodeOfAdvent
 {
@@ -21,7 +22,32 @@ namespace CodeOfAdvent
   {  
     static void Main(string[] args)
     {
+      //var hex = "04005AC33890";
+      //var binary = Packet.GetBinaryFromHex(hex);
+      //var packet = new Packet(binary);
+      //Console.WriteLine($"{packet.ActualValue}");
+
+      Execute_Day_16_Task1();
+      Execute_Day_16_Task2();
+    }
+
+    private static void Execute_Day_16_Task1()
+    {
+      string input = InputReader.ReadFromLocalFile(InputReader.DAY16)[0];
+      string binary = Packet.GetBinaryFromHex(input);
       
+      var packet = new Packet(binary);
+      int result = packet.GetSumOfVersion();
+      Console.WriteLine($"Total of all versions: {result}");
+    }
+
+    private static void Execute_Day_16_Task2()
+    {
+      string input = InputReader.ReadFromLocalFile(InputReader.DAY16)[0];
+      string binary = Packet.GetBinaryFromHex(input);
+      var packet = new Packet(binary);
+      var result = packet.ActualValue;
+      Console.WriteLine($"Result of operations: {result}");
     }
 
     private static void Execute_Day_15_Task2()
